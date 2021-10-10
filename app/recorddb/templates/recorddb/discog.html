@@ -4,11 +4,12 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'recorddb/style.css' %}">
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{artist_name}} Discography</title>
   </head>
   <body>
     <p>
-        <a href="/">Home</a>
+        <center><a href="/">Home</a></center>
         {% if albums %}
         <h2>{{artist_name}}</h2>
         <table>
