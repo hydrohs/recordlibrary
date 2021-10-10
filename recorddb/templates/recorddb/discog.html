@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'recorddb/style.css' %}">
+    <meta charset="utf-8">
+    <title>{{artist_name}} Discography</title>
+  </head>
+  <body>
+    <p>
+        <a href="/">Home</a>
+        {% if albums %}
+        <h2>{{artist_name}}</h2>
+        <table>
+            <th>Title</th>
+            <th>Owned</th>
+            <th>Condition</th>
+            <th>Release Date</th>
+            {% for a in albums %}
+            <tr>
+            {% if a.owned %}
+                    <td class="owned">{{a.title}}</td>
+                    <td class="owned">{{a.owned}}</td>
+                    {% if a.condition == 'N' %}
+                        <td class="owned">New</td>
+                    {% elif a.condition == 'U' %}
+                        <td class="used">Used</td>
+                    {% else %}
+                        <td class="owned"></td>
+                    {% endif %}
+                    <td class="owned">{{a.release_date}}</td>
+            {% else %}
+                    <td>{{a.title}}</td>
+                    <td>{{a.owned}}</td>
+                    <td>{{a.condition}}</td>
+                    <td>{{a.release_date}}</td>
+            {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        No records found for artist '{{artist_name}}'
+        {% endif %}
+    </p>
+  </body>
+</html>

@@ -7,11 +7,16 @@
   <body>
     <p>
         {% if wishlist %}
-        <ul>
-            {% for album in wishlist %}
-            <li>{{album.artist}} - {{album.title}}</li>
+            {% for a in artists %}
+            <h2><a href="{% url 'recorddb:discog' a %}">{{a}}</a></h2>
+            <ul>
+              {% for w in wishlist %}
+                {% if w.artist.name == a %}
+                  <li>({{w.release_date}}) {{w.title}}</li>
+                {% endif %}
+              {% endfor %}
+            </ul>
             {% endfor %}
-        </ul>
         {% else %}
         No records wanted
         {% endif %}

@@ -17,6 +17,7 @@ class Record(models.Model):
     artist = models.ForeignKey(Artist, on_delete=CASCADE)
     owned = models.BooleanField(default=False)
     condition = models.CharField(max_length=1, blank=True, choices=Condition.choices, default=Condition.NONE)
+    release_date = models.DateField(null=True)
 
     def __str__(self):
         return self.title
