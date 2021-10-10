@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  recordlibrary:
+    build: .
+    container_name: recordlibrary
+    ports:
+      - "8100:8000"
+    volumes:
+      - ../app:/app
