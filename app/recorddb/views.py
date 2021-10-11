@@ -9,6 +9,7 @@ def index(request):
     for a in Artist.objects.all():
         if wishlist.filter(artist=a.id):
             artists.append(a.name)
+    artists.sort()
     context = {
         'wishlist': wishlist,
         'artists' : artists,
