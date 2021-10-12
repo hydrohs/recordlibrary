@@ -18,29 +18,29 @@
             <th>Condition</th>
             <th>Release Date</th>
             {% for a in albums %}
-            <tr>
-            {% if a.owned %}
-                    <td class="owned">{{a.title}}</td>
-                    <td class="owned">{{a.owned}}</td>
-                    {% if a.condition == 'N' %}
-                        <td class="owned">New</td>
-                    {% elif a.condition == 'U' %}
-                        <td class="used">Used</td>
-                    {% else %}
-                        <td class="owned"></td>
-                    {% endif %}
-                    <td class="owned">{{a.release_date}}</td>
-            {% else %}
-                    <td>{{a.title}}</td>
-                    <td>{{a.owned}}</td>
-                    <td>{{a.condition}}</td>
-                    <td>{{a.release_date}}</td>
-            {% endif %}
-            </tr>
+              <tr>
+              {% if a.owned %}
+                <td class="owned">{{a.title}}</td>
+                <td class="owned">{{a.owned}}</td>
+                {% if a.condition == 'N' %}
+                    <td class="owned">New</td>
+                {% elif a.condition == 'U' %}
+                    <td class="used">Used</td>
+                {% else %}
+                    <td class="owned"></td>
+                {% endif %}
+                <td class="owned">{{a.release_date}}</td>
+              {% else %}
+                <td>{{a.title}}</td>
+                <td>{{a.owned}}</td>
+                <td>{{a.condition}}</td>
+                <td>{{a.release_date}}</td>
+              {% endif %}
+                </tr>
             {% endfor %}
         </table>
         {% else %}
-        No records found for artist '{{artist_name}}'
+          No records found for artist '{{artist_name}}'
         {% endif %}
     </p>
   </body>

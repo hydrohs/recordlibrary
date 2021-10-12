@@ -5,27 +5,27 @@
     <link rel="stylesheet" type="text/css" href="{% static 'recorddb/style.css' %}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wishlist</title>
+    <title>Inventory List</title>
   </head>
   <body>
     <p>
       <ul class="tree">
-        {% if wishlist %}
+        {% if albums %}
             {% for a in artists %}
             <li class="artist-{{a}}">
               <input type="checkbox" id="{{a}}"/>
               <label for="{{a}}"><a href="{% url 'recorddb:discog' a %}">{{a}}</a></label>
               <ul>
-                {% for w in wishlist %}
-                  {% if w.artist.name == a %}
-                    <li>({{w.release_date}}) {{w.title}}</li>
+                {% for album in albums %}
+                  {% if album.artist.name == a %}
+                    <li>({{album.release_date}}) {{album.title}}</li>
                   {% endif %}
                 {% endfor %}
               </ul>
             </li>
             {% endfor %}
         {% else %}
-          No records wanted
+          No records found
         {% endif %}
       </ul>
     </p>

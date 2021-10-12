@@ -16,6 +16,19 @@ def index(request):
     }
     return render(request, 'recorddb/index.html', context)
 
+def list_all(request):
+    albums = Record.objects.filter(owned=True).order_by('release_date')
+    artists = []
+    for a in Artist.objects.all():
+        if albums.filter(artist=a.id):
+            artists.append(a.name)
+    artists.sort()
+    context = {
+        'albums': albums,
+        'artists' : artists,
+    }
+    return render(request, 'recorddb/list.html', context)
+
 def discog(request, artist_name):
     if Artist.objects.filter(name=artist_name).exists():
         artist_id = Artist.objects.get(name=artist_name)

@@ -1,6 +1,58 @@
+/* Convert lists to collapsible menus */
+.tree, [class^="artist-"] ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .tree {
+    background: #fbfbfb;
+    border: 1px solid #d2d2d2;
+  }
+  .tree li {
+    border-bottom: 1px solid #d2d2d2;
+    padding: 15px 10px;
+  }
+  .tree li:last-child {
+    border: 0;
+  }
+  
+  /* Hide lists by default */
+  [class^="artist-"] ul { display: none; }
+  [class^="artist-"] input:checked ~ ul { display: block; }
+  
+  /* Hide actual checkboxes */
+  [class^="artist-"] input[type=checkbox] { display: none; }
+  
+  /* Add expand and collapse icons  */
+  [class^="artist-"] { 
+    position: relative; 
+    padding-left: 35px !important;
+  }
+  [class^="artist-"] label:after {
+    content: "\0002B";
+    position: absolute;
+    top: 0; left: 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+    color: #23c37a;
+    transition: all 0.5s;
+  }
+  [class^="artist-"] input:checked ~ label:after { 
+    color: #f00;
+    transform: rotate(45deg);
+  }
+  
+  .tree {
+    font-family: arial, sans-serif;
+    font-size: 18px;
+  }
+
+/* Styling for tables */
 h2 {
     text-align: center;
 }
+
 table {                                                                                                                 
     border-collapse: collapse;                                                                                          
     margin: auto;                                                                                                       
@@ -36,6 +88,3 @@ tbody tr:last-of-type {
     background-color: #ffe600;
     color: #000000;
 }
-/* thead tr, tbody tr:hover {
-    text-align: left;
-} */
