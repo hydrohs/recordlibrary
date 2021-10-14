@@ -2,9 +2,9 @@ version: '3'
 
 services:
   recordlibrary:
-    build: .
+    build: ./docker
     container_name: recordlibrary
     ports:
-      - "8100:8000"
+      - "8002:8000"
     volumes:
-      - ../app:/app
+      - ./:/app
