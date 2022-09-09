@@ -50,6 +50,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = ['https://records.lan.hydrohs.com']
+
 ROOT_URLCONF = 'recordlibrary.urls'
 
 TEMPLATES = [
